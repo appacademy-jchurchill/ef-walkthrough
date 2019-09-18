@@ -1,20 +1,17 @@
 ﻿using EntityFramework.Data;
 using EntityFramework.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EntityFramework
 {
     class Program
     {
-        static bool Test(Person person)
-        {
-            return person.IsStarWarsFan;
-        }
+        //static bool Test(Person person)
+        //{
+        //    return person.IsStarWarsFan;
+        //}
 
         static void Main(string[] args)
         {
@@ -27,6 +24,8 @@ namespace EntityFramework
             using (var context = new Context())
             {
                 context.Database.Log = (message) => Console.WriteLine(message);
+
+                // Adding new records...
 
                 //context.People.Add(new Person()
                 //{
@@ -44,9 +43,9 @@ namespace EntityFramework
                 //});
                 //context.SaveChanges();
 
-                // select * from People
-                //var people = context.People.ToList();
+                // Queries...
 
+                // select * from People
                 //var people = context.People.ToList();
 
                 ////Func<Person, bool> test = p => p.IsStarWarsFan;
@@ -81,8 +80,11 @@ namespace EntityFramework
                 //var james = context.People
                 //    .SingleOrDefault(p => p.Id == 1);
 
-
                 // http://localhost:55443/Person/Add
+
+                // CRUD Operations
+
+                // Add...
 
                 //context.People.Add(new Person()
                 //{
@@ -92,29 +94,13 @@ namespace EntityFramework
                 //});
                 //context.SaveChanges();
 
-
-                // Entry object = Model
-                // Model instance
-
-                // Name
-                // Birth Date
-                // Weight
-                // Is Star Wars Fan?
-
-
-                //var formModel = { };
-
-
-
+                // Update...
 
                 //var sam = context.People.Find(2);
                 //var samEntry = context.Entry(sam);
                 //sam.Weight = 150;
                 //context.ChangeTracker.DetectChanges();
                 //context.SaveChanges();
-
-
-
 
                 // http://localhost:55443/People/Edit/1
 
@@ -134,17 +120,15 @@ namespace EntityFramework
                 //entry.Property(p => p.IsStarWarsFan).IsModified = true;
                 //context.SaveChanges();
 
+                // Delete...
 
                 //var sam = context.People.Find(1);
                 //context.People.Remove(sam);
                 //context.SaveChanges();
 
-
                 //var sam = new Person() { Id = 1 };
                 //context.Entry(sam).State = EntityState.Deleted;
                 //context.SaveChanges();
-
-
 
                 var people = context.People.ToList();
 
